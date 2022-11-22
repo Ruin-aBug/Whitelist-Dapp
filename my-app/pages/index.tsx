@@ -1,6 +1,5 @@
 import Web3Modal from "web3modal";
 import Head from 'next/head';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import { JsonRpcSigner, Web3Provider } from "@ethersproject/providers";
@@ -132,7 +131,7 @@ export default function Home() {
 				<div>
 					<h1 className={styles.title}>Welcome to Crypto Devs</h1>
 					<div className={styles.description}>
-						It's an NFT collection for developers in crypto.
+						Its an NFT collection for developers in crypto.
 					</div>
 					<div className={styles.description}>
 						{numberOfWhitelisted} have already joined the Whitelist.
