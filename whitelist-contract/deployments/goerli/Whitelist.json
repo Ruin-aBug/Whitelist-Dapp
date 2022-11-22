@@ -1,0 +1,154 @@
+{
+  "address": "0x31918aAc9325B41e9daf523e3EEB0687900F5B4F",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_maxWhitelistAddresses",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "addAddressToWhitelisted",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxWhitelistAddresses",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "numAddressesWhitelisted",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whitelistedAddress",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x7a15eb2784930cc7b5e10a6cbd40c146fc19835ce5adb97bc5d7d73858260727",
+  "receipt": {
+    "to": null,
+    "from": "0xecc07155796b60709eF57aF536eb92D46a826474",
+    "contractAddress": "0x31918aAc9325B41e9daf523e3EEB0687900F5B4F",
+    "transactionIndex": 21,
+    "gasUsed": "215826",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x707045434482476b55039b7e007273709a3b0e5ebdbd39a067c42c0bfb1ab212",
+    "transactionHash": "0x7a15eb2784930cc7b5e10a6cbd40c146fc19835ce5adb97bc5d7d73858260727",
+    "logs": [],
+    "blockNumber": 7999837,
+    "cumulativeGasUsed": "3060154",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    10
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "6f99f58383555c363858ed692917064f",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_maxWhitelistAddresses\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"addAddressToWhitelisted\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxWhitelistAddresses\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"numAddressesWhitelisted\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"whitelistedAddress\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Whitelist.sol\":\"Whitelist\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Whitelist.sol\":{\"content\":\"//SPDX-License-Identifier: Unlicense\\n\\npragma solidity ^0.8.0;\\n\\ncontract Whitelist {\\n    uint8 public maxWhitelistAddresses;\\n\\n    mapping(address => bool) public whitelistedAddress;\\n\\n    uint8 public numAddressesWhitelisted;\\n\\n    constructor(uint8 _maxWhitelistAddresses) {\\n        maxWhitelistAddresses = _maxWhitelistAddresses;\\n    }\\n\\n    function addAddressToWhitelisted() public {\\n        require(\\n            !whitelistedAddress[msg.sender],\\n            \\\"Sender has already been whitelisted\\\"\\n        );\\n        require(\\n            numAddressesWhitelisted < maxWhitelistAddresses,\\n            \\\"More addresses cant be added, limit reached\\\"\\n        );\\n\\n        whitelistedAddress[msg.sender] = true;\\n        numAddressesWhitelisted += 1;\\n    }\\n}\\n\",\"keccak256\":\"0x9ae9ab6ce5e7a2a53006bcf75ecf96ce85d4d8a3ff49f617fe4fc990aaaa26ff\",\"license\":\"Unlicense\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161030338038061030383398101604081905261002f91610048565b6000805460ff191660ff92909216919091179055610072565b60006020828403121561005a57600080fd5b815160ff8116811461006b57600080fd5b9392505050565b610282806100816000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80634011d7cd14610051578063c30796ab14610075578063c346dbfa146100a8578063d47ac0f4146100b2575b600080fd5b60025461005e9060ff1681565b60405160ff90911681526020015b60405180910390f35b6100986100833660046101e9565b60016020526000908152604090205460ff1681565b604051901515815260200161006c565b6100b06100bf565b005b60005461005e9060ff1681565b3360009081526001602052604090205460ff16156101305760405162461bcd60e51b815260206004820152602360248201527f53656e6465722068617320616c7265616479206265656e2077686974656c69736044820152621d195960ea1b60648201526084015b60405180910390fd5b60005460025460ff91821691161061019e5760405162461bcd60e51b815260206004820152602b60248201527f4d6f7265206164647265737365732063616e742062652061646465642c206c6960448201526a1b5a5d081c995858da195960aa1b6064820152608401610127565b3360009081526001602081905260408220805460ff19168217905560028054919290916101cf90849060ff16610219565b92506101000a81548160ff021916908360ff160217905550565b6000602082840312156101fb57600080fd5b81356001600160a01b038116811461021257600080fd5b9392505050565b600060ff821660ff84168060ff0382111561024457634e487b7160e01b600052601160045260246000fd5b01939250505056fea2646970667358221220793ef0549b0e14283c51ec5dce0ad8bdabcc10c858ca951aca2bd517975914a264736f6c63430008090033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80634011d7cd14610051578063c30796ab14610075578063c346dbfa146100a8578063d47ac0f4146100b2575b600080fd5b60025461005e9060ff1681565b60405160ff90911681526020015b60405180910390f35b6100986100833660046101e9565b60016020526000908152604090205460ff1681565b604051901515815260200161006c565b6100b06100bf565b005b60005461005e9060ff1681565b3360009081526001602052604090205460ff16156101305760405162461bcd60e51b815260206004820152602360248201527f53656e6465722068617320616c7265616479206265656e2077686974656c69736044820152621d195960ea1b60648201526084015b60405180910390fd5b60005460025460ff91821691161061019e5760405162461bcd60e51b815260206004820152602b60248201527f4d6f7265206164647265737365732063616e742062652061646465642c206c6960448201526a1b5a5d081c995858da195960aa1b6064820152608401610127565b3360009081526001602081905260408220805460ff19168217905560028054919290916101cf90849060ff16610219565b92506101000a81548160ff021916908360ff160217905550565b6000602082840312156101fb57600080fd5b81356001600160a01b038116811461021257600080fd5b9392505050565b600060ff821660ff84168060ff0382111561024457634e487b7160e01b600052601160045260246000fd5b01939250505056fea2646970667358221220793ef0549b0e14283c51ec5dce0ad8bdabcc10c858ca951aca2bd517975914a264736f6c63430008090033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 82,
+        "contract": "contracts/Whitelist.sol:Whitelist",
+        "label": "maxWhitelistAddresses",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 86,
+        "contract": "contracts/Whitelist.sol:Whitelist",
+        "label": "whitelistedAddress",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 88,
+        "contract": "contracts/Whitelist.sol:Whitelist",
+        "label": "numAddressesWhitelisted",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint8"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
